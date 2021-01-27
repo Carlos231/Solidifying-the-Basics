@@ -29,7 +29,7 @@ the game a little, the scores will stay around the same order of magnitude.
 */
 function sortScores(unorderedScores, highestPossibleScore) {
 
-  // Sort the scores in O(n) time
+  // Sort the scores in O(n) time and O(n) space
 
   /*
     create a score counts array to hold all possible scores and fill it with 0's
@@ -59,7 +59,7 @@ function sortScores(unorderedScores, highestPossibleScore) {
   // Populate the final sorted array
   const sortedScores = [];
 
-  // For each item in scoreCounts
+  // For each unique item in scoreCounts array
   for (let score = highestPossibleScore; score >= 0; score--) {
     const count = scoreCounts[score];
     // For the number of times the item occurs

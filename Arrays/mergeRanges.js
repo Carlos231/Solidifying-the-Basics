@@ -14,6 +14,19 @@ Write a function mergeRanges() that takes an array of multiple meeting time rang
 function mergeRanges(meetings) {
     // Merge meetings ranges
 
+    /*
+        O(n log n) time
+        O(n) space
+        -parse json to an object we can work with and *sort* it by startTime in ascending order to sortedMeetings
+        - save the first meetings from sortedMeetings array to mergedArray
+        - loop through the sorted meeting and save the current meeting and the lasted meeting saved from the mergedMeeting array
+            -check if current.startTime <= last.endtime 
+                - set the last.endTime = max of the current and last endtime
+            - else add the current meeting to the mergedMeetings array
+
+        return merged meetings
+    */
+
     // create a copy of the meetings array and sort it by startTime
     const sortedMeetings = JSON.parse(JSON.stringify(meetings)).sort((a, b) => {
         return a.startTime - b.startTime;
