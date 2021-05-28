@@ -49,11 +49,11 @@ our algorithms flexible and comprehensive.
 */
 
 /* 
-O(n∗k) time, and O(k)O(k) space, where nn is number of types of cake and kk is the capacity of the duffel bag. We loop through each cake (nn cakes) for every capacity (kk capacities), so our runtime is O(n*k)O(n∗k), and maintaining the array of k+1k+1 capacities gives us the O(k)O(k) space.
+O(n∗k) time, and O(k) space, where n is number of types of cake and k is the capacity of the duffel bag. We loop through each cake (n cakes) for every capacity (k capacities), so our runtime is O(n*k), and maintaining the array of k+1 capacities gives us the O(k) space.
 
-Keep in mind: in some cases, it might not be worth using our optimal dynamic programming solution. It's a pretty slow algorithm—without any context (not knowing how many cake types we have, what our weight capacity is, or just how they compare) it's easy to see O(n*k)O(n∗k) growing out of control quickly if nn or kk is large.
+Keep in mind: in some cases, it might not be worth using our optimal dynamic programming solution. It's a pretty slow algorithm—without any context (not knowing how many cake types we have, what our weight capacity is, or just how they compare) it's easy to see O(n*k) growing out of control quickly if n or k is large.
 
-If we cared about time, like if there was an alarm in the vault and we had to move quickly, it might be worth using a faster algorithm that gives us a good answer, even if it's not always the optimal answer. Some of our first ideas in the breakdown were to look at cake values or value/weight ratios. Those algorithms would probably be faster, taking O(n\lg{n})O(nlgn) time (we'd have to start by sorting the input).
+If we cared about time, like if there was an alarm in the vault and we had to move quickly, it might be worth using a faster algorithm that gives us a good answer, even if it's not always the optimal answer. Some of our first ideas in the breakdown were to look at cake values or value/weight ratios. Those algorithms would probably be faster, taking O(n\lg{n}) time (we'd have to start by sorting the input).
 
 Sometimes an efficient, good answer might be more practical than an inefficient, optimal answer.
 */
@@ -76,8 +76,8 @@ function maxDuffelBagValue(cakeTypes, weightCapacity) {
         // If we get a cakeType that weighs nothing and has a value. but forEach
         // loops always return undefined and you can't break out of them without
         // throwing an exception
-        for (let j = 0; j < cakeTypes.length; j++) {
-            const cakeType = cakeTypes[j];
+        for (let i = 0; i < cakeTypes.length; i++) {
+            const cakeType = cakeTypes[i];
 
             // If a cake weighs 0 and has a positive value the value of our duffel bag is infinite!
             if (cakeType.weight === 0 && cakeType.value !== 0) {
